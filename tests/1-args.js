@@ -220,12 +220,12 @@ var tests = {
             assert.equal('/test', topic['build-dir']);
         }
     },
-    'should set default build-dir to "../../build"': {
+    'should set default build-dir equivalent to "../../build"': {
         topic: function() {
             return args.parse(['', '']);
         },
-        'should be "../../build"': function(topic) {
-            assert.equal(topic['build-dir'], '../../build');
+        'path to "../../build" from build-dir should be ""': function(topic) {
+            assert.equal(path.relative('../../build', topic['build-dir']), '');
         }
     },
     'args.has(foo) (not an argument)': {
